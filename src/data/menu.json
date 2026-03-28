@@ -9,29 +9,33 @@
           "name": "Baby Miko",
           "description": "Medallón 100g, doble queso, mayo, ketchup, cebolla",
           "price": 13000,
-          "image": "/images/menu/babymiko.png"
+          "image": "/images/menu/babymiko.jpg",
+          "ingredients": ["Medallón 100g", "Doble queso", "Mayo", "Ketchup", "Cebolla"]
         },
         {
           "id": "miko",
           "name": "Miko",
           "description": "2 medallones 100g (200g), doble queso, mayo, ketchup, cebolla",
           "price": 15000,
-          "image": "/images/menu/miko.png",
-          "popular": true
+          "image": "/images/menu/miko.jpg",
+          "popular": true,
+          "ingredients": ["2 Medallones 100g", "Doble queso", "Mayo", "Ketchup", "Cebolla"]
         },
         {
           "id": "baby-mico",
           "name": "Baby Miço",
           "description": "Medallón 100g, doble queso, mostaza dijon, pepinos",
           "price": 13000,
-          "image": "/images/menu/babymiko.png"
+          "image": "/images/menu/babymiko.jpg",
+          "ingredients": ["Medallón 100g", "Doble queso", "Mostaza dijon", "Pepinos"]
         },
         {
           "id": "mico",
           "name": "Miço",
           "description": "2 medallones 100g (200g), doble queso, mostaza dijon, pepinos",
           "price": 15000,
-          "image": "/images/menu/migo2.png"
+          "image": "/images/menu/migo2.jpg",
+          "ingredients": ["2 Medallones 100g", "Doble queso", "Mostaza dijon", "Pepinos"]
         }
       ]
     },
@@ -44,15 +48,17 @@
           "name": "Daniela",
           "description": "Medallón, doble queso, bacon picado, salsa Miko especial",
           "price": 14000,
-          "image": "/images/menu/daniela.png"
+          "image": "/images/menu/daniela.jpg",
+          "ingredients": ["Medallón", "Doble queso", "Bacon picado", "Salsa Miko especial"]
         },
         {
           "id": "daniela-doble",
           "name": "Daniela Doble",
           "description": "2 medallones (200g), doble queso, bacon picado, salsa Miko especial",
           "price": 16000,
-          "image": "/images/menu/daniela2.png",
-          "popular": true
+          "image": "/images/menu/daniela2.jpg",
+          "popular": true,
+          "ingredients": ["2 Medallones", "Doble queso", "Bacon picado", "Salsa Miko especial"]
         }
       ]
     },
@@ -65,14 +71,16 @@
           "name": "Lisa",
           "description": "Medallón, doble queso, lechuga, tomate, salsa Miko",
           "price": 14000,
-          "image": "/images/menu/lisa.png"
+          "image": "/images/menu/lisa.jpg",
+          "ingredients": ["Medallón", "Doble queso", "Lechuga", "Tomate", "Salsa Miko"]
         },
         {
           "id": "lisa-doble",
           "name": "Lisa Doble",
           "description": "2 medallones (200g), doble queso, lechuga, tomate, salsa Miko",
           "price": 16000,
-          "image": "/images/menu/lisa2.png"
+          "image": "/images/menu/lisa2.jpg",
+          "ingredients": ["2 Medallones", "Doble queso", "Lechuga", "Tomate", "Salsa Miko"]
         }
       ]
     },
@@ -85,11 +93,17 @@
           "name": "Sampler",
           "description": "Las 3 burgers (Miko, Lisa, Daniela) + guarnición de papas",
           "price": 35000,
-          "image": "/images/menu/sampler.png",
+          "image": "/images/menu/sampler.jpg",
           "popular": true
         }
       ]
     }
+  ],
+  "extras": [
+    { "id": "extra-medallon", "name": "Medallón extra (c/ cheddar)", "price": 4500 },
+    { "id": "extra-bacon", "name": "Extra bacon", "price": 3500 },
+    { "id": "extra-cheddar", "name": "Extra cheddar", "price": 1500 },
+    { "id": "extra-salsa", "name": "Extra salsa", "price": 1500 }
   ],
   "config": {
     "deliveryFee": 3000,

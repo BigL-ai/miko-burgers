@@ -8,18 +8,40 @@ export default function CartItem({ item }) {
   const removeItem = useCartStore((state) => state.removeItem)
   const deleteItem = useCartStore((state) => state.deleteItem)
 
+  const itemKey = item.customId || item.id
+
+  const hasCustomizations =
+    (item.removedIngredients && item.removedIngredients.length > 0) ||
+    (item.selectedExtras && item.selectedExtras.length > 0)
+
   return (
     <motion.div
       layout
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -20 }}
-      className="flex items-center gap-3 py-3 border-b border-miko-gray last:border-0"
+      className="flex items-start gap-3 py-3 border-b border-miko-gray last:border-0"
     >
       <div className="flex-1 min-w-0">
         <h4 className="text-miko-white font-medium text-sm truncate">
           {item.name}
         </h4>
+
+        {hasCustomizations && (
+          <div className="mt-1 space-y-0.5">
+            {item.removedIngredients?.map((ing) => (
+              <p key={ing} className="text-red-400 text-xs">
+                ✕ Sin {ing}
+              </p>
+            ))}
+            {item.selectedExtras?.map((extra) => (
+              <p key={extra.id} className="text-miko-pink text-xs">
+                + {extra.name}
+              </p>
+            ))}
+          </div>
+        )}
+
         <p className="text-miko-gold text-sm font-bold mt-1">
           {formatPrice(item.price * item.quantity)}
         </p>
@@ -27,13 +49,13 @@ export default function CartItem({ item }) {
 
       <QuantitySelector
         quantity={item.quantity}
-        onIncrease={() => addItem(item)}
-        onDecrease={() => removeItem(item.id)}
+        onIncrease={() => addItem({ ...item, quantity: undefined })}
+        onDecrease={() => removeItem(itemKey)}
       />
 
       <motion.button
         whileTap={{ scale: 0.8 }}
-        onClick={() => deleteItem(item.id)}
+        onClick={() => deleteItem(itemKey)}
         className="text-miko-white/40 hover:text-miko-pink p-1"
         aria-label="Eliminar"
       >

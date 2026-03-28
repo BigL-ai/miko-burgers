@@ -26,6 +26,20 @@ export function buildWhatsAppMessage({ items, deliveryType, customerName, addres
     const lineTotal = item.price * item.quantity
     subtotal += lineTotal
     message += `• ${item.quantity}x ${item.name} — ${formatPrice(lineTotal)}\n`
+
+    // Ingredientes removidos
+    if (item.removedIngredients && item.removedIngredients.length > 0) {
+      item.removedIngredients.forEach((ing) => {
+        message += `   ⛔ Sin ${ing}\n`
+      })
+    }
+
+    // Extras agregados
+    if (item.selectedExtras && item.selectedExtras.length > 0) {
+      item.selectedExtras.forEach((extra) => {
+        message += `   ➕ ${extra.name} (+${formatPrice(extra.price)})\n`
+      })
+    }
   })
 
   message += `━━━━━━━━━━━━━━━\n`
